@@ -3,20 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <title>AION2 HELPER</title>
-<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <h1>AION2 HELPER</h1>
 
-<button onclick="startShare()">화면 공유 시작</button>
+<button id="shareBtn">화면 공유 시작</button>
 
 <br><br>
 
-<video id="screenVideo" autoplay playsinline style="width:800px;border:1px solid #555;"></video>
+<video id="screenVideo" autoplay playsinline style="width:800px;"></video>
 
-<script src="script.js"></script>
+<script>
+
+document.getElementById("shareBtn").addEventListener("click", async () => {
+
+    try {
+
+        const stream = await navigator.mediaDevices.getDisplayMedia({
+            video: true
+        });
+
+        document.getElementById("screenVideo").srcObject = stream;
+
+    } catch (err) {
+
+        alert("화면 공유 실패: " + err);
+
+    }
+
+});
+
+</script>
 
 </body>
 </html>
