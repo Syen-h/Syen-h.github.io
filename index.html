@@ -1,50 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>AION2 HELPER</title>
-</head>
-
-<body>
-
-<h1>AION2 HELPER</h1>
-
-<button id="shareBtn">화면 공유 시작</button>
-
-<br><br>
-
-<video id="screenVideo" autoplay playsinline style="width:800px;"></video>
-
-<hr>
-
-<h2>오버레이 프로그램 다운로드</h2>
+<h1>좌표 오버레이 프로그램</h1>
 <p>F1로 좌표 찍기 / F2 삭제</p>
 
 <a href="Baggot.exe" download>
-    <button>프로그램 다운로드</button>
+  프로그램 다운로드
 </a>
-
-<script>
-
-document.getElementById("shareBtn").addEventListener("click", async () => {
-
-    try {
-
-        const stream = await navigator.mediaDevices.getDisplayMedia({
-            video: true
-        });
-
-        document.getElementById("screenVideo").srcObject = stream;
-
-    } catch (err) {
-
-        alert("화면 공유 실패: " + err);
-
-    }
-
-});
-
-</script>
-
-</body>
-</html>
